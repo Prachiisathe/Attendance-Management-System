@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>View Students</title>
+    <link rel="stylesheet" href="{% static 'attendance_app/view.css' %}">
+</head>
+
+<body>
+    <div>
+        <div class="header">
+            <h1>Mark Attendance</h1>
+            <nav class="navbar-frame">
+
+                <ul class="nav gap-4">
+                    <li><a href="{% url 'home' %}" class="nav-link navbar-link-custom">Home</a></li>
+                    <li><a href="{% url 'add_student' %}" class="nav-link navbar-link-custom">Add Student</a></li>
+                    <li><a href="{% url 'view_students' %}" class="nav-link navbar-link-custom">Student List</a>
+                    </li>
+                    <li><a href="{% url 'attendance' %}" class="nav-link navbar-link-custom active">Attendance</a></li>
+                    <li><a href="{% url 'attendance_report' %}" class="nav-link navbar-link-custom">Attendance Reports</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="nav-link navbar-link-custom">Dashboard</a></li>
+                </ul>
+
+            </nav>
+        </div>
+
+
+<form method="POST" action="{% url 'attendance' %}">
+
+    {% csrf_token %}
+
+
+    <table class="student-table">
+
+        <tr>
+            <th>Roll No</th>
+            <th>Name</th>
+            <th>Class</th>
+            <th>Department</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Edit</th>
+        </tr>
+
+        {% for student in students %}
+
+        <tr>
+            <td>{{ student.roll_no }}</td>
+            <td>{{ student.student_name }}</td>
+            <td>{{ student.student_class }}</td>
+            <td>{{ student.department }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.phone_no }}</td>
+
+            <td>
+                <label>
+                    <input type="radio" name="attendance_{{ student.id }}" value="Present">
+                    Present
+                </label>
+
+                <label>
+                    <input type="radio" name="attendance_{{ student.id }}" value="Absent">
+                    Absent
+                </label>
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+
+        <div class="button-container">
+            <button type="submit">Save Attendance</button>
+        </div>
+</form>
+
+</body>
+
+</html>

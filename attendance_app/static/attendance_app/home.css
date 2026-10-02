@@ -1,0 +1,97 @@
+
+:root {
+    --bg-canvas: #f8fafc;
+    --primary-brand: #4f46e5;
+    --brand-gradient: linear-gradient(135deg, #4f46e5 0%, #2e2a78 100%);
+    --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.03);
+    --text-heading: #0f172a;
+    --text-body: #64748b;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--text-heading);
+}
+
+.dashboard-banner {
+    background: var(--brand-gradient);
+    padding-bottom: 5.5rem;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+.navbar-link-custom {
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+    padding: 0.5rem 0.25rem;
+}
+
+.navbar-link-custom:hover,
+.navbar-link-custom.active {
+    color: #ffffff !important;
+    border-bottom-color: #ffffff;
+}
+
+.grid-overlap {
+    margin-top: -3.5rem;
+}
+
+.interactive-card {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s ease;
+    overflow: hidden;
+}
+
+.interactive-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+
+
+.pill-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: #f1f5f9;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary-brand);
+}
+
+.label-tag {
+    background: #e0e7ff;
+    color: #3730a3;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
+.custom-accordion {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #e2e8f0;
+}
+
+.custom-accordion .accordion-button:not(.collapsed) {
+    background-color: #f8fafc;
+    color: var(--primary-brand);
+    box-shadow: none;
+}
+
+.custom-accordion .accordion-button {
+    font-weight: 600;
+    color: var(--text-heading);
+}

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance System</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <link rel="stylesheet" href="{% static 'attendance_app/home.css' %}">
+</head>
+
+<body>
+
+
+    <header class="dashboard-banner text-white shadow-sm">
+        <div class="container pt-4">
+            <div
+                class="d-flex flex-column flex-md-row justify-content-between align-items-center pb-4 mb-4 border-bottom border-white-10">
+                <div class="d-flex align-items-center gap-2 mb-3 mb-md-0">
+                    <div class="bg-white p-2 rounded-3 d-flex align-items-center justify-content-center"
+                        style="width: 40px; height: 40px;">
+                        <i class="bi bi-grid-1x2-fill fs-5" style="color: var(--primary-brand);"></i>
+                    </div>
+                    <span class="fs-5 fw-bold tracking-tight">Attendance System</span>
+                </div>
+
+                <nav>
+                    <ul class="nav gap-4">
+                        <li><a href="{% url 'home' %}" class="nav-link navbar-link-custom active">Home</a></li>
+                        <li><a href="{% url 'add_student' %}" class="nav-link navbar-link-custom">Add Student</a></li>
+                        <li><a href="{% url 'view_students' %}" class="nav-link navbar-link-custom">Student List</a>
+                        </li>
+                        <li><a href="{% url 'attendance' %}" class="nav-link navbar-link-custom">Attendance</a></li>
+                        <li><a href="{% url 'attendance_report' %}" class="nav-link navbar-link-custom">Attendance
+                                Reports</a></li>
+                        <li><a href="{% url 'dashboard' %}" class="nav-link navbar-link-custom">Dashboard</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="row py-2">
+                <div class="col-lg-8">
+                    <h1 class="display-6 fw-bold tracking-tight mb-2">Attendance Management System </h1>
+                    <p class="text-white-50 fs-6 mb-0">System dashboard for checking rosters, monitoring sessions, and
+                        running academic logs.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <main class="container mb-5">
+
+        <div class="row g-4 grid-overlap mb-5">
+
+            <div class="col-md-6">
+                <div class="card interactive-card h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                            class="card-img-top" alt="Analytics workspace image"
+                            style="height: 220px; object-fit: cover;">
+                        <div class="position-absolute bottom-0 start-0 m-3">
+                            <span class="badge label-tag px-3 py-2 text-uppercase bg-white shadow-sm">Workspace</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="h5 card-title fw-bold mb-2">Student Attendance</h3>
+                            <p class="text-muted small mb-4">Manage daily tracking and review comprehensive
+                                participation analytics for your class.</p>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-2 border-top border-light">
+                            <span class="pill-indicator"><i class="bi bi-calendar-check"></i> System Active</span>
+                            <a href="{% url 'attendance' %}"
+                                class="btn btn-sm btn-primary px-3 rounded-3 fw-medium">Open Panel</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-md-6">
+                <div class="card interactive-card h-100">
+                    <div class="position-relative">
+                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80"
+                            class="card-img-top" alt="Lecture room image" style="height: 220px; object-fit: cover;">
+                        <div class="position-absolute bottom-0 start-0 m-3">
+                            <span class="badge label-tag px-3 py-2 text-uppercase bg-white shadow-sm">Schedule</span>
+                        </div>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column justify-content-between">
+                        <div>
+                            <h3 class="h5 card-title fw-bold mb-3">Next Scheduled Session</h3>
+
+                            <div class="p-3 bg-light rounded-3 mb-4 border border-dashed text-center">
+                                <h4 class="fw-bold mb-2" style="font-size: 20px; color: var(--text-heading);">Computer
+                                    Science</h4>
+                                <p class="text-muted mb-0 small"><i class="bi bi-clock me-1 text-primary"></i> Lecture:
+                                    Monday at 10:00AM</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pt-2 border-top border-light">
+                            <span class="text-muted small"><i class="bi bi-info-circle me-1"></i>Pre-loads
+                                automatically</span>
+                            <a href="{% url 'attendance_report' %}"
+                                class="btn btn-sm btn-outline-secondary px-3 rounded-3 fw-medium">View Reports</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

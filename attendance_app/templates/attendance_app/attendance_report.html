@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Attendance Report</title>
+    <link rel="stylesheet" href="{% static 'attendance_app/view.css' %}">
+</head>
+
+<body>
+
+    <div>
+        <div class="header">
+            <h1>Attendance Report</h1>
+            <nav class="navbar-frame">
+                <ul class="nav gap-4">
+                    <li><a href="{% url 'home' %}" class="nav-link navbar-link-custom">Home</a></li>
+                    <li><a href="{% url 'add_student' %}" class="nav-link navbar-link-custom">Add Student</a></li>
+                    <li><a href="{% url 'view_students' %}" class="nav-link navbar-link-custom">Student List</a>
+                    </li>
+                    <li><a href="{% url 'attendance' %}" class="nav-link navbar-link-custom">Attendance</a></li>
+                    <li><a href="{% url 'attendance_report' %}" class="nav-link navbar-link-custom active">Attendance
+                            Reports</a></li>
+                    <li><a href="{% url 'dashboard' %}" class="nav-link navbar-link-custom">Dashboard</a></li>
+                </ul>
+
+
+
+            </nav>
+
+        </div>
+
+        <form method="GET" class="search-form">
+
+            <input type="text" name="q" placeholder="Search Name or Roll No" value="{{ query }}" class="search-input">
+
+            <input type="date" name="date" value="{{ date }}">
+
+            <select name="status">
+                <option value="">All Status</option>
+                <option value="Present">Present</option>
+                <option value="Absent">Absent</option>
+            </select>
+
+            <button type="submit" class="search-btn">Filter</button>
+
+        </form>
+
+
+        <table class="student-table">
+
+            <tr>
+                <th>Date</th>
+                <th>Roll No</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Status</th>
+            </tr>
+
+            {% for record in records %}
+
+            <tr>
+                <td>{{ record.date }}</td>
+                <td>{{ record.student.roll_no }}</td>
+                <td>{{ record.student.student_name }}</td>
+                <td>{{ record.student.student_class }}</td>
+                <td>{{ record.status }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+</body>
+
+</html>

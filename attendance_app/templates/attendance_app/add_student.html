@@ -1,0 +1,96 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Add Student</title>
+    <link rel="stylesheet" href="{% static 'attendance_app/style.css' %}">
+    <style>
+        .error-msg {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 4px;
+            display: block;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <h1 style="text-align: center;">Add New Student</h1>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="input">
+                <label>Student Name:</label>
+                {{ form.student_name }}
+                {% if form.student_name.errors %}
+                <span class="error-msg">{{ form.student_name.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Roll No:</label>
+                {{ form.roll_no }}
+                {% if form.roll_no.errors %}
+                <span class="error-msg">{{ form.roll_no.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Class:</label>
+                {{ form.student_class }}
+                {% if form.student_class.errors %}
+                <span class="error-msg">{{ form.student_class.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Department:</label>
+                {{ form.department }}
+                {% if form.department.errors %}
+                <span class="error-msg">{{ form.department.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Email:</label>
+                {{ form.email }}
+                {% if form.email.errors %}
+                <span class="error-msg">{{ form.email.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Phone no:</label>
+                {{ form.phone_no }}
+                {% if form.phone_no.errors %}
+                <span class="error-msg">{{ form.phone_no.errors.0 }}</span>
+                {% endif %}
+            </div>
+
+            <div class="input">
+                <label>Address:</label>
+                {{ form.address }}
+                {% if form.address.errors %}
+                <span class="error-msg">{{ form.address.errors.0 }}</span>
+                {% endif %}
+            </div>
+            <button type="submit">Save Student Details</button>
+        </form>
+
+
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="{% url 'home' %}" style="font-size: 20px; color: white; text-decoration: none;">Back to Home</a>
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>

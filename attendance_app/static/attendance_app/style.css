@@ -1,0 +1,80 @@
+body {
+    background:#38339A;
+    justify-content: center;
+    height: 100vh;
+    display: flex;
+    padding: 100px;
+}
+
+form {
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 50px;
+    max-width: 450px;
+    margin: auto;
+    color: rgb(36, 39, 42);
+    font-family: sans-serif;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+form div {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 8px;
+    box-shadow: 50px solid rgb(0, 0, 0);
+    text-align: center;
+
+
+}
+
+h1 {
+    font-size: 50px;
+    color: white;
+    margin-top: 5px;
+}
+
+.input label {
+    color: #f0f0f0;
+}
+
+button {
+    background-color: #2563eb;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 20px;
+    text-align: center;
+    padding: 10px 20px;
+    align-self: center;
+    color: white;
+}
+
+form:hover {
+    transform: translateY(-3px);
+    transition: 0.3s;
+    box-shadow: 0 20px 40px rgba(109, 107, 107, 0.5);
+}
+
+.error-message {
+    width: 350px;
+    margin: 15px auto;
+    padding: 10px;
+    background: #ffe6e6;
+    color: #d8000c;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
